@@ -56,7 +56,7 @@
      */
     
     //NSArray
-    
+    /*
     NSArray *array = @[@"A",@"B",@"C"];
     self.arrayCopy = array;
     self.arrayStrong = array;       //浅拷贝
@@ -65,6 +65,7 @@
     NSLog(@"原对象地址----%p,指针地址------%p,对象值------%@",array,&array,array);
     NSLog(@"strong修饰的对象地址----%p,指针地址------%p,对象值------%@",_arrayStrong,&_arrayStrong,_arrayStrong);
     NSLog(@"copy修饰的对象地址----%p,指针地址------%p,对象值------%@",_arrayCopy ,&_arrayCopy,_arrayCopy);
+    */
     
     /*
 
@@ -118,6 +119,14 @@
      )
      结论: 对NSMutableArray copy是深拷贝
      */
+    
+    NSMutableString *str = [NSMutableString stringWithFormat:@"ABC"];
+    NSArray *array = @[str];
+//    NSArray *array1 = [array copy];         //ABCDEF
+    NSArray *array1 = [array mutableCopy];    //ABCDEF
+    [str appendString:@"DEF"];
+    NSLog(@"array1-------%@",array1);
+    
 }
 
 
